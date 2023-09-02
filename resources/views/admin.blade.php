@@ -28,7 +28,6 @@
                     </li>
                 </ul>
 
-                {{auth()->user()->is_admin}}
             </div>
         </div>
     </div>

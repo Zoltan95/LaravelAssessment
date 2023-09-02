@@ -30,5 +30,7 @@ Route::get('/companies/{company}', function(\App\Models\Company $company) {
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/admin/create-company', [App\Http\Controllers\HomeController::class, 'create'])->middleware('admin');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('admin/create-company', [App\Http\Controllers\HomeController::class, 'create'])->middleware('admin');
+Route::get('admin/manage-company', [App\Http\Controllers\HomeController::class, 'manage'])->middleware('admin');
+Route::post('/admin/store', [App\Http\Controllers\HomeController::class, 'store'])->middleware('admin');
