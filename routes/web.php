@@ -15,15 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('companies');
-});
-
-Route::get('/company', function () {
-    return view('company', [
-        'company'=>\App\Models\Company::first('company_name'),
+    return view('companies',[
+      'companies' => \App\Models\Company::all()
     ]);
 });
 
+Route::get('/companies/{company}', function(\App\Models\Company $company) {
+    return view('company', [
+       'company'=>$company,
+        'employees'=> $company->employees,
+    ]);
+});
+
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/admin/create-company', [App\Http\Controllers\HomeController::class, 'create'])->middleware('admin');
