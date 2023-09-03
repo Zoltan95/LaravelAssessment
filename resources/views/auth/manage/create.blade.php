@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form method="POST" action="/admin/store">
+                <form method="POST" action="/admin/create-new" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="company_name">Company Name:</label>
@@ -36,6 +36,16 @@
                             class="form-control"
                             id="company_website"
                             value="{{old('company_website')}}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company_website">Company Logo:</label>
+                        <input
+                            type="file"
+                            name="company_logo"
+                            class="form-control"
+                            id="company_logo"
                         >
                     </div>
 

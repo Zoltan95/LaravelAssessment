@@ -57,6 +57,12 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="/admin/create-company">
+                                        Create Company
+                                    </a>
+                                    <a class="dropdown-item" href="/admin/manage-company">
+                                        Manage Company
+                                    </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

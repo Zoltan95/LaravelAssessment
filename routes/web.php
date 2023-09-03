@@ -33,4 +33,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('admin/create-company', [App\Http\Controllers\HomeController::class, 'create'])->middleware('admin');
 Route::get('admin/manage-company', [App\Http\Controllers\HomeController::class, 'manage'])->middleware('admin');
-Route::post('/admin/store', [App\Http\Controllers\HomeController::class, 'store'])->middleware('admin');
+Route::post('/admin/create-new', [App\Http\Controllers\CompanyController::class, 'create_new'])->middleware('admin');
