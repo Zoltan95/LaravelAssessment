@@ -37,6 +37,13 @@ class HomeController extends Controller
 
     public function manage()
     {
-        return view('auth.manage.manage');
+        return view('auth.manage.manage', [
+            'companies' => \App\Models\Company::all()
+        ]);
+    }
+
+    public function edit(Company $company)
+    {
+        return view('auth.manage.edit', ['company'=> $company]);
     }
 }

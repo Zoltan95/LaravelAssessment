@@ -23,4 +23,22 @@ class CompanyController extends Controller
 
         return redirect('/');
     }
+
+    public function update(Company $company)
+    {
+        $attributes = request()->validate([
+            'company_name'=>['required', Rule::unique('companies', 'company_name')->ignore($company->id)],
+            'company_email'=>'required',
+            'company_logo'=>'image',
+            'company_website'=>'required',
+        ]);
+
+        if (isset($attributes['company_logo'])) {
+            $attributes['company_logo'] = request()->file('company_logo')->store('logos');
+        }
+
+        $company->update($attributes);
+
+        return redirect('/');
+    }
 }

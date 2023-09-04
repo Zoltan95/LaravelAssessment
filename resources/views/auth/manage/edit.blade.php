@@ -4,8 +4,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form method="POST" action="/admin/create-new" enctype="multipart/form-data">
+                <form method="POST" action="/admin/manage-company/edit/{{$company->id}}" enctype="multipart/form-data">
                     @csrf
+                    @method('PATCH')
                     <div class="form-group">
                         <label for="company_name">Company Name:</label>
                         <input
@@ -13,10 +14,10 @@
                             name="company_name"
                             class="form-control"
                             id="company_name"
-                            value="{{old('company_name')}}"
+                            value="{{old('company_name', $company->company_name)}}"
                         >
                         @error('company_name')
-                            <p class="invalid-feedback" style="display: block" >{{$message}}</p>
+                        <p class="invalid-feedback" style="display: block" >{{$message}}</p>
                         @enderror
                     </div>
 
@@ -27,10 +28,10 @@
                             name="company_email"
                             class="form-control"
                             id="company_email"
-                            value="{{old('company_email')}}"
+                            value="{{old('company_name', $company->company_email)}}"
                         >
                         @error('company_email')
-                            <p class="invalid-feedback" style="display: block" >{{$message}}</p>
+                        <p class="invalid-feedback" style="display: block" >{{$message}}</p>
                         @enderror
                     </div>
 
@@ -41,7 +42,7 @@
                             name="company_website"
                             class="form-control"
                             id="company_website"
-                            value="{{old('company_website')}}"
+                            value="{{old('company_name', $company->company_website)}}"
                         >
                         @error('company_website')
                         <p class="invalid-feedback" style="display: block" >{{$message}}</p>
@@ -57,7 +58,7 @@
                             id="company_logo"
                         >
                         @error('company_logo')
-                            <p class="invalid-feedback" style="display: block" >{{$message}}</p>
+                        <p class="invalid-feedback" style="display: block" >{{$message}}</p>
                         @enderror
                     </div>
 

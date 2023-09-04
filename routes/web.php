@@ -33,4 +33,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('admin/create-company', [App\Http\Controllers\HomeController::class, 'create'])->middleware('admin');
 Route::get('admin/manage-company', [App\Http\Controllers\HomeController::class, 'manage'])->middleware('admin');
+Route::get('admin/manage-company/{company}', [App\Http\Controllers\HomeController::class, 'edit'])->middleware('admin');
+Route::patch('admin/manage-company/edit/{company}', [App\Http\Controllers\CompanyController::class, 'update'])->middleware('admin');
 Route::post('/admin/create-new', [App\Http\Controllers\CompanyController::class, 'create_new'])->middleware('admin');

@@ -14,10 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/app.css">
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
 </head>
 <body>
     <div id="app">
@@ -57,12 +54,15 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+
+                                    @if (Auth::user()->name === 'Admin')
                                     <a class="dropdown-item" href="/admin/create-company">
                                         Create Company
                                     </a>
                                     <a class="dropdown-item" href="/admin/manage-company">
                                         Manage Company
                                     </a>
+                                    @endif
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
