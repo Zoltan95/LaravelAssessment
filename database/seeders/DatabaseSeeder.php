@@ -14,8 +14,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        Company::factory(20)->create([
+            'company_logo' => '/logos/example.jpg'
+        ]);
+
         $company = Company::factory()->create([
-            'company_name'=>'Blue Storm'
+            'company_name'=>'Blue Storm',
+            'company_logo' => '/logos/example.jpg'
+        ]);
+
+        Employee::factory(30)->create([
+            'company_id'=> $company->id
+        ]);
+
+        $company = Company::factory()->create([
+            'company_name'=>'Green Storm',
+            'company_logo' => '/logos/example.jpg'
         ]);
 
         Employee::factory(5)->create([
@@ -23,15 +37,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $company = Company::factory()->create([
-            'company_name'=>'Green Storm'
-        ]);
-
-        Employee::factory(5)->create([
-            'company_id'=> $company->id
-        ]);
-
-        $company = Company::factory()->create([
-            'company_name'=>'Red Storm'
+            'company_name'=>'Red Storm',
+            'company_logo' => '/logos/example.jpg'
         ]);
 
         Employee::factory(5)->create([

@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="container">
+        <h1 class="w-100 text-center mb-4">Create a new Company</h1>
         <div class="row justify-content-center">
+            <div class="col-md-4 d-flex flex-column">
+                <a class="btn btn-secondary mt-3" href="/admin/create-company">Create a new Company</a>
+                <a class="btn btn-secondary mt-3" href="/admin/manage-company">Manage existing Company</a>
+            </div>
             <div class="col-md-8">
                 <form method="POST" action="/admin/create-new" enctype="multipart/form-data">
                     @csrf

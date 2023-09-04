@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        <h1 class="w-100 text-center mb-4">Welcome</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -18,15 +19,14 @@
                     </div>
                 </div>
 
-                <ul>
-                    <li>
-                        <a href="/admin/create-company">Add a new company</a>
-                    </li>
-
-                    <li>
-                        <a href="/admin/manage-company">Manage an existing company</a>
-                    </li>
-                </ul>
+                <div class="row text-center">
+                    <div class="col-mb-12 mt-3">
+                        <a class="btn btn-secondary" href="admin/create-company">Create a new Company</a>
+                    </div>
+                    <div class="col-mb-12 mt-3">
+                        <a class="btn btn-secondary" href="admin/manage-company">Manage existing Company</a>
+                    </div>
+                </div>
 
             </div>
         </div>

@@ -3,8 +3,59 @@ body
     margin: auto;
 }
 
-.card
+.card-title
 {
-    width: 50%;
+    height: 50px;
+
+}
+nav
+{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+}
+nav:first-child
+{
+
+}
+
+.companies-card
+{
+    max-width: 600px!important;
+    width: 60%;
     margin: 0 5px;
+}
+
+.btn-employee
+{
+    padding: .1em 0;
+}
+
+.edit-employee
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.edit-hidden
+{
+    background-color: #1a202c;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: .9;
+    z-index: 0;
+}
+
+.edit-employee div.container
+{
+    opacity: 1;
+    z-index: 999;
+    width: 40rem;
 }

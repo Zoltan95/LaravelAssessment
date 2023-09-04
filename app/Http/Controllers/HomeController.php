@@ -38,12 +38,16 @@ class HomeController extends Controller
     public function manage()
     {
         return view('auth.manage.manage', [
-            'companies' => \App\Models\Company::all()
+            'companies' => \App\Models\Company::paginate(10)
         ]);
     }
 
     public function edit(Company $company)
     {
-        return view('auth.manage.edit', ['company'=> $company]);
+        //dd($company->employees('items')->paginate());
+        return view('auth.manage.edit', [
+            'company'=> $company,
+            'employees'=> $company->employees()->paginate(),
+        ]);
     }
 }
