@@ -1,10 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
+    @if (session()->has('success') || session()->has('danger'))
+        <script>
+            setTimeout(function() {
+                    $('.message').fadeOut('slow');}, 2000,
+                $('.message').css('display', 'none')
+            );
+        </script>
+        @if (session()->has('success'))
+            <div class="text-center position-absolute card alert alert-success alert-dismissible fade show message" role="alert">
+                <div class="">
+                    {{ session('success') }}
+                </div>
+            </div>
+        @else
+            <div class="text-center position-absolute card alert alert-danger alert-dismissible fade show message" role="alert">
+                <div class="">
+                    {{ session('danger') }}
+                </div>
+            </div>
+        @endif
+    @endif
     <div class="container">
         <div class="row justify-content-center">
             <h1 class="w-100 text-center mb-4">Manage Companies</h1>
             <div class="col-md-4 d-flex flex-column">
+                <form method="GET" action="#">
+                    <div class="w-100 d-flex align-items-center text-center">
+                        <label class="d-none" for="search">Search:</label>
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="search"
+                            placeholder="company name"
+                            value="{{request('search')}}"
+                        >
+                        <button class="m-1 btn btn-secondary" style="margin-left: 10px!important;margin-right!important;: 5px;" type="submit">search</button>
+                    </div>
+                </form>
+                <a class="btn btn-secondary mt-3" href="/admin/manage-company">View all</a>
                 <a class="btn btn-secondary mt-3" href="/admin/create-company">Create a new Company</a>
                 <a class="btn btn-secondary mt-3" href="/admin/manage-company">Manage existing Company</a>
             </div>
@@ -30,7 +65,7 @@
                                         @csrf
                                         @method('DELETE')
 
-                                        <button class="btn btn-primary m-2" type="submit">remove</button>
+                                        <button class="btn btn-danger m-2" type="submit">remove</button>
                                     </form>
                                 </div>
                             </div>

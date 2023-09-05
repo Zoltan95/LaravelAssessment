@@ -22,13 +22,6 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        if (auth()->user()->is_admin === 1){
-            return view('admin');
-        }
-        return view('home');
-    }
 
     public function create()
     {
@@ -37,9 +30,18 @@ class HomeController extends Controller
 
     public function manage()
     {
-        return view('auth.manage.manage', [
-            'companies' => \App\Models\Company::paginate(10)
-        ]);
+
+        if (request('search')) {
+            $companies = \App\Models\Company::where('company_name', 'like', '%' . request('search') . '%');
+            return view('auth.manage.manage',[
+                'companies' => $companies->paginate(10),
+            ]);
+        }else {
+            $companies = \App\Models\Company::paginate(10);
+            return view('auth.manage.manage', [
+                'companies' => $companies
+            ]);
+        }
     }
 
     public function edit(Company $company)
@@ -47,7 +49,7 @@ class HomeController extends Controller
         //dd($company->employees('items')->paginate());
         return view('auth.manage.edit', [
             'company'=> $company,
-            'employees'=> $company->employees()->paginate(),
+            'employees'=> $company->employees()->paginate(10),
         ]);
     }
 }

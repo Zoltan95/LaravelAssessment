@@ -6,3 +6,59 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+@media (max-width: 1199px) {
+    .companies-card
+    {
+        max-width: 100%!important;
+    }
+
+    .companies-box
+    {
+        justify-content: center!important;
+    }
+
+}
+
+@media (max-width: 580px) {
+    .companies-card
+    {
+        max-width: 100%!important;
+    }
+
+    .companies-box
+    {
+        justify-content: center!important;
+    }
+
+
+    .search-bar
+    {
+        justify-content: center;
+
+        .d2
+        {
+            width: 100%;
+
+            input
+            {
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+.d1
+{
+    a
+    {
+        text-decoration: none;
+    }
+}
+
+.search-bar
+{
+
+}

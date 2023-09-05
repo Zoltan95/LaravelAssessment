@@ -9,7 +9,7 @@
                 <a class="btn btn-secondary mt-3" href="/admin/manage-company">Manage existing Company</a>
             </div>
             <div class="col-md-8">
-                <form method="POST" action="/admin/create-new" enctype="multipart/form-data">
+                <form class="mt-3"method="POST" action="/admin/create-new" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="company_name">Company Name:</label>

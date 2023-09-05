@@ -3,10 +3,16 @@ body
     margin: auto;
 }
 
+.message
+{
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
 .card-title
 {
     height: 50px;
-
 }
 nav
 {
@@ -14,21 +20,15 @@ nav
     margin-top: 15px;
     display: flex;
 }
-nav:first-child
+
+.search-bar
 {
 
-}
-
-.companies-card
-{
-    max-width: 600px!important;
-    width: 60%;
-    margin: 0 5px;
 }
 
 .btn-employee
 {
-    padding: .1em 0;
+
 }
 
 .edit-employee

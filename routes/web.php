@@ -16,23 +16,19 @@ use Illuminate\Support\Facades\Route;
 
 \Illuminate\Pagination\Paginator::useBootstrapFive();
 
-Route::get('/', function () {
-    return view('companies',[
-      'companies' => \App\Models\Company::paginate(10)
-    ]);
-});
+Route::get('/', [\App\Http\Controllers\CompanyController::class, 'index'])->name('home');
 
 Route::get('/companies/{company}', function(\App\Models\Company $company) {
     return view('company', [
        'company'=>$company,
-        'employees'=> $company->employees,
+        'employees'=> $company->employees()->paginate(10),
     ]);
 });
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\CompanyController::class, 'index']);
 Route::get('admin/create-company', [App\Http\Controllers\HomeController::class, 'create'])->middleware('admin');
 Route::get('admin/manage-company', [App\Http\Controllers\HomeController::class, 'manage'])->middleware('admin');
 Route::get('admin/manage-company/{company}', [App\Http\Controllers\HomeController::class, 'edit'])->middleware('admin');
