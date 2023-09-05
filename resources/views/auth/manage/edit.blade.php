@@ -113,6 +113,9 @@
                                 name="first_name"
                                 placeholder="First Name"
                             >
+                            @error('first_name')
+                            <p class="invalid-feedback" style="display: block" >{{$message}}</p>
+                            @enderror
                         </div>
                         <div class="col-md-2 d-flex flex-column">
                             <label class="d-none" for="employee_last-name">Last Name</label>
@@ -122,6 +125,9 @@
                                 name="last_name"
                                 placeholder="Last Name"
                             >
+                            @error('last_name')
+                            <p class="invalid-feedback" style="display: block" >{{$message}}</p>
+                            @enderror
                         </div>
                         <div class="col-md-2 d-flex flex-column">
                             <label class="d-none" for="employee_company">Company</label>
@@ -142,6 +148,9 @@
                                 placeholder="Email"
 
                             >
+                            @error('email')
+                            <p class="invalid-feedback" style="display: block" >{{$message}}</p>
+                            @enderror
                         </div>
                         <div class="col-md-2 d-flex flex-column">
                             <label class="d-none" for="employee_company">Phone</label>
@@ -152,6 +161,9 @@
                                 placeholder="Phone"
 
                             >
+                            @error('phone')
+                            <p class="invalid-feedback" style="display: block" >{{$message}}</p>
+                            @enderror
                         </div>
                         <div class="col-md-2 d-flex flex-column">
                             <button class="btn btn-primary btn-employee" type="submit">Add</button>
